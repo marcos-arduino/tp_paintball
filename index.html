@@ -44,8 +44,23 @@
                 <label for="players">Cantidad de jugadores:</label>
                 <input type="number" id="players" name="players" min="2" max="20" required />
 
+                <label for="sede">Sede de preferencia:</label>
+                <select id="sede" name="sede" required>
+                    <option value="San Isidro">San Isidro</option>
+                    <option value="Pilar">Pilar</option>
+                    <option value="Belgrano">Belgrano</option>
+                </select>
+
                 <button type="submit">Reservar</button>
             </form>
         </div>
     </body>
+    <script>
+        if (window.location.search.includes("error=date")) {
+            alert("La fecha de la partida no puede ser anterior a la fecha actual");
+        }
+        if (window.location.search.includes("error=overlap")) {
+            alert("Ya hay una reserva para esa fecha, hora y sede. Por favor intenta con otra fecha, hora o sede");
+        }
+    </script>
 </html>
